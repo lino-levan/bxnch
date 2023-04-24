@@ -32,9 +32,9 @@ export async function handler(request: Request) {
     data: {
       labels: bench.benches.map(({ name }: any) => name),
       datasets: [{
-        label: "Iterations",
+        label: "Iterations / second",
         data: bench.benches.map(({ results }: any) => results[0].ok.avg),
-        backgroundColor: ChartColors.Green,
+        backgroundColor: url.searchParams.get("color") ?? ChartColors.Green,
       }],
     },
     options: {
