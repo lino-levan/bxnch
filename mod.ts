@@ -46,12 +46,6 @@ export async function handler(request: Request) {
           },
         },
       },
-      plugins: {
-        title: {
-          display: true,
-          text: `${bench.cpu} ${bench.runtime}`,
-        },
-      },
     },
   });
 }
