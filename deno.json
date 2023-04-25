@@ -1,4 +1,5 @@
 {
+  "lock": false,
   "importMap": "import_map.json",
   "tasks": {
     "dev": "deno run --watch --allow-net mod.ts"
