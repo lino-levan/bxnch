@@ -32,7 +32,7 @@ export async function handler(request: Request) {
     data: {
       labels: bench.benches.map(({ name }: any) => name),
       datasets: [{
-        label: "Iterations / second",
+        label: "avg. ns/iter",
         data: bench.benches.map(({ results }: any) => results[0].ok.avg),
         backgroundColor: url.searchParams.get("color") ?? ChartColors.Green,
       }],
@@ -42,7 +42,7 @@ export async function handler(request: Request) {
         y: {
           title: {
             display: true,
-            text: "Iterations",
+            text: "avg. ns/iter",
           },
         },
       },
