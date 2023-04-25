@@ -1,6 +1,6 @@
 {
   "imports": {
     "fresh_charts/": "https://deno.land/x/fresh_charts@0.2.1/",
-    "std/": "https://deno.land/std@0.182.0/"
+    "std/": "https://deno.land/std@0.184.0/"
   }
 }

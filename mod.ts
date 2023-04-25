@@ -25,6 +25,7 @@ export async function handler(request: Request) {
     return new Response(null, { status: 404 });
   }
 
+  const isDark = url.searchParams.get("dark") !== null;
   const response = await fetch(toRawFileUrl(url));
   const bench = await response.json();
 
@@ -38,11 +39,33 @@ export async function handler(request: Request) {
       }],
     },
     options: {
+      color: isDark ? "white" : undefined,
       scales: {
         y: {
           title: {
             display: true,
             text: "avg. ns/iter",
+            color: isDark ? "white" : undefined,
+          },
+          grid: {
+            color: isDark ? "rgba(255,255,255,0.5)" : undefined,
+          },
+          ticks: {
+            color: isDark ? "white" : undefined,
+          },
+          border: {
+            color: isDark ? "rgba(255,255,255,0.5)" : undefined,
+          },
+        },
+        x: {
+          grid: {
+            color: isDark ? "rgba(255,255,255,0.5)" : undefined,
+          },
+          ticks: {
+            color: isDark ? "white" : undefined,
+          },
+          border: {
+            color: isDark ? "rgba(255,255,255,0.5)" : undefined,
           },
         },
       },
