@@ -18,7 +18,7 @@ export async function handler(request: Request) {
 
   const url = new URL(request.url);
   if (url.pathname === "/") {
-    return Response.redirect("https://github.com/iuioiua/bnch");
+    return Response.redirect("https://github.com/iuioiua/bxnch");
   }
 
   if (url.pathname === "/favicon.ico") {
@@ -27,6 +27,11 @@ export async function handler(request: Request) {
 
   const isDark = url.searchParams.get("dark") !== null;
   const response = await fetch(toRawFileUrl(url));
+
+  if (!response.ok) {
+    return new Response(response.body, { ...response, headers: {} });
+  }
+
   const bench = await response.json();
 
   return await renderChart({
