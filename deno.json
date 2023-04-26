@@ -2,6 +2,7 @@
   "lock": false,
   "importMap": "import_map.json",
   "tasks": {
-    "dev": "deno run --watch --allow-net mod.ts"
+    "dev": "deno run --watch --allow-net mod.ts",
+    "ok": "deno fmt --check && deno lint && deno check mod.ts"
   }
 }
