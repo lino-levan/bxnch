@@ -35,7 +35,7 @@ export async function handler(request: Request) {
     data: {
       labels: bench.benches.map(({ name }: any) => name),
       datasets: [{
-        label: "avg. ns/iter",
+        label: "Performance (avg. ns/iter)",
         data: bench.benches.map(({ results }: any) => results[0].ok.avg),
         backgroundColor: url.searchParams.get("color") ?? ChartColors.Green,
       }],
@@ -46,7 +46,7 @@ export async function handler(request: Request) {
         y: {
           title: {
             display: true,
-            text: "avg. ns/iter",
+            text: "Performance (avg. ns/iter)",
             color: isDark ? "white" : undefined,
           },
           grid: {
