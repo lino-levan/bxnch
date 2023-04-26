@@ -19,4 +19,4 @@ jobs:
 
     steps:
       - name: Check formatting, linting and types
-        uses: deno task ok
+        run: deno task ok
