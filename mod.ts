@@ -30,6 +30,8 @@ export async function handler(request: Request) {
   const bench = await response.json();
 
   return await renderChart({
+    width: parseInt(url.searchParams.get("width") ?? "768"),
+    height: parseInt(url.searchParams.get("height") ?? "384"),
     data: {
       labels: bench.benches.map(({ name }: any) => name),
       datasets: [{
