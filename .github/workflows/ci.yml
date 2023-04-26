@@ -18,5 +18,11 @@ jobs:
           - macOS-12
 
     steps:
+      - name: Setup repo
+        uses: actions/checkout@v3
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+
       - name: Check formatting, linting and types
-        uses: deno task ok
+        run: deno task ok
