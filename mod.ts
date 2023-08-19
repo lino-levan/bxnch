@@ -1,7 +1,7 @@
 // deno-lint-ignore-file no-explicit-any
-import { serve } from "std/http/server.ts";
 import { renderChart } from "fresh_charts/render.ts";
 import { ChartColors } from "fresh_charts/utils.ts";
+import { Status } from "std/http/http_status.ts";
 
 export function toRawFileUrl(url: URL) {
   return url.toString().replace(
@@ -13,7 +13,7 @@ export function toRawFileUrl(url: URL) {
 export async function handler(request: Request) {
   if (request.method !== "GET") {
     await request.body?.cancel();
-    return new Response(null, { status: 404 });
+    return new Response(null, { status: Status.NotFound });
   }
 
   const url = new URL(request.url);
@@ -22,7 +22,7 @@ export async function handler(request: Request) {
   }
 
   if (url.pathname === "/favicon.ico") {
-    return new Response(null, { status: 404 });
+    return new Response(null, { status: Status.NotFound });
   }
 
   const isDark = url.searchParams.get("dark") !== null;
@@ -35,8 +35,8 @@ export async function handler(request: Request) {
   const bench = await response.json();
 
   return await renderChart({
-    width: parseInt(url.searchParams.get("width") ?? "768"),
-    height: parseInt(url.searchParams.get("height") ?? "384"),
+    width: Number(url.searchParams.get("width") ?? "768"),
+    height: Number(url.searchParams.get("height") ?? "384"),
     data: {
       labels: bench.benches.map(({ name }: any) => name),
       datasets: [{
@@ -80,10 +80,6 @@ export async function handler(request: Request) {
   });
 }
 
-async function main() {
-  await serve(handler);
-}
-
 if (import.meta.main) {
-  await main();
+  await Deno.serve(handler);
 }

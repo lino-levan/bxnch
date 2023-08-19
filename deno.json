@@ -1,8 +1,12 @@
 {
   "lock": false,
-  "importMap": "import_map.json",
   "tasks": {
     "dev": "deno run --watch --allow-net mod.ts",
-    "ok": "deno fmt --check && deno lint && deno check mod.ts"
+    "bench:gen": "deno bench --json > bench.json",
+    "ok": "deno fmt --check && deno lint && deno check **/*.ts"
+  },
+  "imports": {
+    "fresh_charts/": "https://deno.land/x/fresh_charts@0.3.1/",
+    "std/": "https://deno.land/std@0.198.0/"
   }
 }

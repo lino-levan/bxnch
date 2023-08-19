@@ -1,43 +1,43 @@
 {
-  "runtime": "Deno/1.32.5 aarch64-apple-darwin",
+  "runtime": "Deno/1.36.1 aarch64-apple-darwin",
   "cpu": "Apple M2",
   "benches": [
     {
-      "origin": "file:///Users/asher/GitHub/bnch/bench.ts",
+      "origin": "file:///Users/asher/GitHub/bxnch/bench.ts",
       "group": "timing",
       "name": "Date.now()",
       "baseline": true,
       "results": [
         {
           "ok": {
-            "n": 1741,
-            "min": 26.575,
-            "max": 46.3959,
-            "avg": 28.91295519816201,
-            "p75": 31.1958,
-            "p99": 38.8084,
-            "p995": 40.5625,
-            "p999": 44.5042
+            "n": 1773,
+            "min": 27.4625,
+            "max": 37.6542,
+            "avg": 28.360744444444446,
+            "p75": 27.7709,
+            "p99": 34.375,
+            "p995": 35.2833,
+            "p999": 36.8625
           }
         }
       ]
     },
     {
-      "origin": "file:///Users/asher/GitHub/bnch/bench.ts",
+      "origin": "file:///Users/asher/GitHub/bxnch/bench.ts",
       "group": "timing",
       "name": "performance.now()",
       "baseline": false,
       "results": [
         {
           "ok": {
-            "n": 215,
-            "min": 219.9792,
-            "max": 327.5917,
-            "avg": 244.7831423255816,
-            "p75": 251.3584,
-            "p99": 288.1584,
-            "p995": 290.2167,
-            "p999": 327.5917
+            "n": 69,
+            "min": 805.8833,
+            "max": 895.1792,
+            "avg": 851.5900362318839,
+            "p75": 873.9959,
+            "p99": 895.1792,
+            "p995": 895.1792,
+            "p999": 895.1792
           }
         }
       ]
