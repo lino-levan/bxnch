@@ -81,5 +81,5 @@ export async function handler(request: Request) {
 }
 
 if (import.meta.main) {
-  await Deno.serve(handler);
+  Deno.serve(handler);
 }
